@@ -16,6 +16,7 @@ data_preprocessing:
 
 data_transformation:
   preprocessor_ob_file_path: "artifacts/data_transformation/preprocessor.pkl"
+  preprocessor_label_ob_file: "artifacts/data_transformation/label_encoder.pkl"
   train_array_file_path: 'artifacts/data_transformation/train_array.npy'
   test_array_file_path: 'artifacts/data_transformation/test_array.npy'
 
