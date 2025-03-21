@@ -1,3 +1,5 @@
+paths:
+  source_data_path: "notebooks/data/cleaned_data.csv"  # Source data path for ingestion
 
 data_ingestion:
   raw_data_path: "artifacts/data_ingestion/raw.csv"
