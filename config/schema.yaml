@@ -1,0 +1,34 @@
+columns:
+  Client_Income: float64
+  Car_Owned: object
+  Bike_Owned: object
+  Active_Loan: object
+  House_Own: object
+  Child_Count: float64
+  Accompany_Client: object
+  Client_Income_Type: object
+  Client_Education: object
+  Client_Marital_Status: object
+  Client_Gender: object
+  Loan_Contract_Type: object
+  Client_Housing_Type: object
+  Age_Days: float64
+  Employed_Days: float64
+  Registration_Days: float64
+  Homephone_Tag: object
+  Workphone_Working: object
+  Client_Occupation: object
+  Client_Family_Members: float64
+  Cleint_City_Rating: float64
+  Application_Process_Day: float64
+  Application_Process_Hour: float64
+  Client_Permanent_Match_Tag: object
+  Client_Contact_Work_Tag: object
+  Type_Organization: object
+  Score_Source_2: float64
+  Phone_Change: float64
+  Credit_Bureau: float64
+
+target_column: Default
+
+
