@@ -154,7 +154,7 @@ class DataPreprocessor:
             train_df = self._handle_duplicates(train_df)
             train_df = self._handle_outliers(train_df)
             train_df = self._handle_data_types(train_df)
-            train_df = self._handle_imbalance(train_df)
+            #train_df = self._handle_imbalance(train_df)
 
             # Handle test data preprocessing (same steps, but no imbalance treatment for test set)
             test_df = self._handle_null_values(test_df)

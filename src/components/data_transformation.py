@@ -7,6 +7,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, LabelEncoder
 from sklearn.impute import SimpleImputer
+from imblearn.over_sampling import SMOTE
 
 from src.logger import logging
 from src.exception import CustomException
@@ -32,7 +33,8 @@ class DataTransformation:
 
         # Ensure directories for all paths exist
         for path in [self.data_transformation_config.train_array_file_path,
-                     self.data_transformation_config.test_array_file_path,self.data_transformation_config.preprocessor_ob_file_path]:
+                     self.data_transformation_config.test_array_file_path,
+                     self.data_transformation_config.preprocessor_ob_file_path]:
             directory = os.path.dirname(path)
             if not os.path.exists(directory):
                 try:
@@ -45,16 +47,14 @@ class DataTransformation:
     def get_data_transformation_object(self):
         try:
             logging.info("Data Transformation Initiated")
-            numerical_columns = ['Client_Income', 'Child_Count', 'Age_Days', 'Employed_Days',
-                                 'Registration_Days', 'Client_Family_Members', 'Cleint_City_Rating',
+            numerical_columns = ['Client_Income', 'Child_Count', 'Employed_Days', 'Registration_Days',
                                  'Application_Process_Day', 'Application_Process_Hour', 'Score_Source_2',
                                  'Phone_Change', 'Credit_Bureau']
 
             categorical_columns = ['Car_Owned', 'Bike_Owned', 'Active_Loan', 'House_Own',
-                                   'Accompany_Client', 'Client_Income_Type', 'Client_Education',
-                                   'Client_Marital_Status', 'Client_Gender', 'Loan_Contract_Type',
-                                   'Client_Housing_Type', 'Homephone_Tag', 'Workphone_Working',
-                                   'Client_Occupation', 'Client_Permanent_Match_Tag',
+                                   'Client_Education', 'Client_Marital_Status', 'Client_Gender',
+                                   'Loan_Contract_Type', 'Client_Housing_Type', 'Homephone_Tag',
+                                   'Workphone_Working', 'Client_Permanent_Match_Tag',
                                    'Client_Contact_Work_Tag', 'Type_Organization']
 
             num_pipeline = Pipeline(
@@ -110,8 +110,8 @@ class DataTransformation:
             le = None
             if target_feature_train_df.dtype == 'object' or pd.api.types.is_categorical_dtype(target_feature_train_df):
                 le = LabelEncoder()
-                target_feature_train_df = le.fit_transform(target_feature_train_df)
-                target_feature_test_df = le.transform(target_feature_test_df)
+                target_feature_train_arr = le.fit_transform(target_feature_train_df)
+                target_feature_test_arr = le.transform(target_feature_test_df)
 
                 # Save the encoding mapping for reference
                 label_mapping = dict(zip(le.classes_, le.transform(le.classes_)))
@@ -122,9 +122,21 @@ class DataTransformation:
             input_feature_train_arr = preprocessor_Obj.fit_transform(input_feature_train_df)
             input_feature_test_arr = preprocessor_Obj.transform(input_feature_test_df)
 
+            logging.info("Preprocessing completed")
+
+            # ✅ Handle Class Imbalance
+
+            logging.info("Handling Class Imbalance")
+
+            smote = SMOTE(sampling_strategy='auto', random_state=42)
+            X_resampled_smote, y_resampled_smote = smote.fit_resample(input_feature_train_arr, target_feature_train_arr)
+            X_test, y_test = smote.fit_resample(input_feature_test_arr, target_feature_test_arr)
+
+            logging.info("Class Imbalance handled")
+
             # Combine features and encoded target arrays
-            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
-            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
+            train_arr = np.c_[X_resampled_smote, np.array(y_resampled_smote)]
+            test_arr = np.c_[X_test, np.array(y_test)]
 
             # ✅ Save label encoder mapping for later use
             if le is not None:
@@ -166,3 +178,4 @@ if __name__ == "__main__":
     except Exception as e:
         logging.error(f"An error occurred: {str(e)}")
         raise CustomException(e, sys) from e
+

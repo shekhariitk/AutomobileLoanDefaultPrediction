@@ -32,3 +32,236 @@ columns:
 target_column: Default
 
 
+models:
+  LogisticRegression:
+    penalty:
+      type: str
+      description: The norm used in the penalization.
+      values: ['l1', 'l2', 'elasticnet', 'none']
+      default: 'l2'
+    C:
+      type: float
+      description: Inverse of regularization strength.
+      range: [0.01, 10.0]
+      default: 1.0
+    solver:
+      type: str
+      description: Algorithm to use in the optimization problem.
+      values: ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga']
+      default: 'lbfgs'
+    max_iter:
+      type: int
+      description: Maximum number of iterations taken for the solvers to converge.
+      default: 100
+  DecisionTreeClassifier:
+    criterion:
+      type: str
+      description: The function to measure the quality of a split.
+      values: ['gini', 'entropy', 'log_loss']
+      default: 'gini'
+    splitter:
+      type: str
+      description: The strategy used to split at each node.
+      values: ['best', 'random']
+      default: 'best'
+    max_depth:
+      type: int
+      description: The maximum depth of the tree.
+      range: [1, 50]
+      default: None
+    min_samples_split:
+      type: int
+      description: The minimum number of samples required to split an internal node.
+      range: [2, 20]
+      default: 2
+    min_samples_leaf:
+      type: int
+      description: The minimum number of samples required to be at a leaf node.
+      range: [1, 20]
+      default: 1
+  RandomForestClassifier:
+    n_estimators:
+      type: int
+      description: The number of trees in the forest.
+      range: [10, 500]
+      default: 100
+    criterion:
+      type: str
+      description: The function to measure the quality of a split.
+      values: ['gini', 'entropy', 'log_loss']
+      default: 'gini'
+    max_depth:
+      type: int
+      description: The maximum depth of the tree.
+      range: [1, 50]
+      default: None
+    min_samples_split:
+      type: int
+      description: The minimum number of samples required to split an internal node.
+      range: [2, 20]
+      default: 2
+    min_samples_leaf:
+      type: int
+      description: The minimum number of samples required to be at a leaf node.
+      range: [1, 20]
+      default: 1
+    max_features:
+      type: str
+      description: The number of features to consider when looking for the best split.
+      values: ['auto', 'sqrt', 'log2']
+      default: 'auto'
+  KNeighborsClassifier:
+    n_neighbors:
+      type: int
+      description: Number of neighbors to use.
+      range: [1, 50]
+      default: 5
+    weights:
+      type: str
+      description: Weight function used in prediction.
+      values: ['uniform', 'distance']
+      default: 'uniform'
+    metric:
+      type: str
+      description: The distance metric to use for the tree.
+      values: ['minkowski', 'euclidean', 'manhattan']
+      default: 'minkowski'
+  GradientBoostingClassifier:
+    learning_rate:
+      type: float
+      description: Learning rate shrinks the contribution of each tree.
+      range: [0.01, 1.0]
+      default: 0.1
+    n_estimators:
+      type: int
+      description: The number of boosting stages.
+      range: [10, 500]
+      default: 100
+    subsample:
+      type: float
+      description: Fraction of samples to be used for fitting each base learner.
+      range: [0.6, 1.0]
+      default: 0.8
+  AdaBoostClassifier:
+    learning_rate:
+      type: float
+      description: Weight of each new base learner.
+      range: [0.01, 1.0]
+      default: 1.0
+    n_estimators:
+      type: int
+      description: The number of estimators.
+      range: [10, 500]
+      default: 50
+  ExtraTreesClassifier:
+    n_estimators:
+      type: int
+      description: The number of trees in the forest.
+      range: [10, 500]
+      default: 100
+    criterion:
+      type: str
+      description: The function to measure the quality of a split.
+      values: ['gini', 'entropy', 'log_loss']
+      default: 'gini'
+    max_features:
+      type: str
+      description: The number of features to consider when looking for the best split.
+      values: ['sqrt', 'log2', None]
+      default: 'sqrt'
+  XGBClassifier:
+    learning_rate:
+      type: float
+      description: Step size shrinking.
+      range: [0.01, 1.0]
+      default: 0.1
+    n_estimators:
+      type: int
+      description: The number of boosting rounds.
+      range: [10, 500]
+      default: 100
+    max_depth:
+      type: int
+      description: Maximum depth of a tree.
+      range: [1, 50]
+      default: 3
+  SVC:
+    kernel:
+      type: str
+      description: Specifies the kernel type to be used in the algorithm.
+      values: ['linear', 'poly', 'rbf', 'sigmoid']
+      default: 'rbf'
+    C:
+      type: float
+      description: Regularization parameter.
+      range: [0.1, 1000]
+      default: 1.0
+    gamma:
+      type: str
+      description: Kernel coefficient for ‘rbf’, ‘poly’, and ‘sigmoid’.
+      values: ['scale', 'auto']
+      default: 'scale'
+  LGBMClassifier:
+    learning_rate:
+      type: float
+      description: Step size shrinking.
+      range: [0.01, 1.0]
+      default: 0.1
+    n_estimators:
+      type: int
+      description: The number of boosting rounds.
+      range: [10, 500]
+      default: 100
+    max_depth:
+      type: int
+      description: Maximum depth of a tree.
+      range: [1, 50]
+      default: -1
+    
+  CatBoostClassifier:
+    learning_rate:
+      type: float
+      description: Step size shrinking.
+      range: [0.01, 1.0]
+      default: 0.1
+    n_estimators:
+      type: int
+      description: The number of boosting rounds.
+      range: [10, 500]
+      default: 100
+    max_depth:
+      type: int
+      description: Maximum depth of a tree.
+      range: [1, 50]
+      default: 6
+    bootstrap_type:
+      type: str
+      description: The method for sampling the weights of objects.
+      values: ['Bayesian', 'Bernoulli', 'MVS', 'Poisson']
+      default: 'Bayesian'
+    subsample:
+      type: float
+      description: The fraction of objects to use for fitting the model.
+      range: [0.6, 1.0]
+      default: 0.8
+    silent:
+      type: bool
+      description: Whether to print to stdout.
+      default: True
+    verbose:
+      type: bool
+      description: Whether to print to stdout.
+      default: False
+
+  LogisticRegressionCV:
+    Cs:
+      type: float
+      description:  floats to try as regularization parameters.
+      default: 0.01
+    cv:
+      type: int
+      description: Number of folds in cross-validation.
+      default: 5
+
+
+

@@ -22,7 +22,8 @@ data_transformation:
 
 model_trainer:
   trained_model_file_path: "artifacts/model_training/model.pkl"
-  param_file_path: "config/param.yaml"
+  param_file_path: "config/params.yaml"
+  schema_file_path: "config/schema.yaml"
 
 model_evaluation:
   evaluation_file_path: "artifacts/model_evaluation/evaluation.json"
