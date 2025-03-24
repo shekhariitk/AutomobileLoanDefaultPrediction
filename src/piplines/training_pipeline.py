@@ -3,6 +3,7 @@ from src.components.data_preprocessing import DataPreprocessor
 from src.components.model_trainer import ModelTrainerClass
 from src.components.data_validation import DataValidator
 from src.components.data_transformation import DataTransformation
+from src.components.model_evaluation import ModelEvaluation
 import sys
 from src.logger import logging
 from src.utils.main_utils import load_config
@@ -86,5 +87,13 @@ class TrainingPipeline:
            logging.error(f"An error occurred: {str(e)}")
            raise CustomException(e, sys) from e
         
+        # Model Evaluation
+        try:
+            model_evaluation = ModelEvaluation(self.config)
+            model_evaluation.evaluate_model()
+        except Exception as e:
+               logging.error(f"An error occurred: {str(e)}")       
+
+
         logging.info("Training pipeline completed successfully.")
         print("Training pipeline completed successfully.")

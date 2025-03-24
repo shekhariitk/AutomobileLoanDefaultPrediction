@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/ML%20projects/AutomobileLoanDefaultPrediction/mlruns/0/a10d0e8220fb4fc6b6a101c38a4918c1/artifacts
+end_time: 1742831748542
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a10d0e8220fb4fc6b6a101c38a4918c1
+run_name: glamorous-worm-432
+run_uuid: a10d0e8220fb4fc6b6a101c38a4918c1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742831748475
+status: 3
+tags: []
+user_id: SHEKHAR SUMAN

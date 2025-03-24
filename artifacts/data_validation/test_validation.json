@@ -1,0 +1,61 @@
+{
+    "null_values": {
+        "Client_Income": 0,
+        "Car_Owned": 0,
+        "Bike_Owned": 0,
+        "Active_Loan": 0,
+        "House_Own": 0,
+        "Child_Count": 0,
+        "Client_Education": 0,
+        "Client_Marital_Status": 0,
+        "Client_Gender": 0,
+        "Loan_Contract_Type": 0,
+        "Client_Housing_Type": 0,
+        "Employed_Days": 0,
+        "Registration_Days": 0,
+        "Homephone_Tag": 0,
+        "Workphone_Working": 0,
+        "Application_Process_Day": 0,
+        "Application_Process_Hour": 0,
+        "Client_Permanent_Match_Tag": 0,
+        "Client_Contact_Work_Tag": 0,
+        "Type_Organization": 0,
+        "Score_Source_2": 0,
+        "Phone_Change": 0,
+        "Credit_Bureau": 0,
+        "Default": 0
+    },
+    "duplicated_rows": 477,
+    "outliers": {
+        "Client_Income": 2233,
+        "Child_Count": 511,
+        "Employed_Days": 6280,
+        "Registration_Days": 213,
+        "Application_Process_Day": 0,
+        "Application_Process_Hour": 269,
+        "Score_Source_2": 143,
+        "Phone_Change": 80,
+        "Credit_Bureau": 818
+    },
+    "data_type_validation": {
+        "Accompany_Client": {
+            "status": "column not found"
+        },
+        "Client_Income_Type": {
+            "status": "column not found"
+        },
+        "Age_Days": {
+            "status": "column not found"
+        },
+        "Client_Occupation": {
+            "status": "column not found"
+        },
+        "Client_Family_Members": {
+            "status": "column not found"
+        },
+        "Cleint_City_Rating": {
+            "status": "column not found"
+        }
+    },
+    "target_column_imbalance": 0.0873910586275618
+}

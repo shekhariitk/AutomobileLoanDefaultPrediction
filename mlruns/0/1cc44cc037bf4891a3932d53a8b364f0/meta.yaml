@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/ML%20projects/AutomobileLoanDefaultPrediction/mlruns/0/1cc44cc037bf4891a3932d53a8b364f0/artifacts
+end_time: 1742835563734
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1cc44cc037bf4891a3932d53a8b364f0
+run_name: worried-bird-99
+run_uuid: 1cc44cc037bf4891a3932d53a8b364f0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742835563645
+status: 3
+tags: []
+user_id: SHEKHAR SUMAN

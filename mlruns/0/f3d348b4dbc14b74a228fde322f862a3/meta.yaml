@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/ML%20projects/AutomobileLoanDefaultPrediction/mlruns/0/f3d348b4dbc14b74a228fde322f862a3/artifacts
+end_time: 1742835248454
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f3d348b4dbc14b74a228fde322f862a3
+run_name: bald-elk-677
+run_uuid: f3d348b4dbc14b74a228fde322f862a3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742835248353
+status: 3
+tags: []
+user_id: SHEKHAR SUMAN

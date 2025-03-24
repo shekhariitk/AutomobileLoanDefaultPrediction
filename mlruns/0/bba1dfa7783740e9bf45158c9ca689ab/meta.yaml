@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/ML%20projects/AutomobileLoanDefaultPrediction/mlruns/0/bba1dfa7783740e9bf45158c9ca689ab/artifacts
+end_time: 1742831883087
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bba1dfa7783740e9bf45158c9ca689ab
+run_name: resilient-fox-617
+run_uuid: bba1dfa7783740e9bf45158c9ca689ab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742831883014
+status: 3
+tags: []
+user_id: SHEKHAR SUMAN

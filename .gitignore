@@ -166,3 +166,4 @@ logs/
 *.log
 *.log.*
 catboost_info/
+mlruns/

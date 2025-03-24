@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/ML%20projects/AutomobileLoanDefaultPrediction/mlruns/0/92348f653c7446a5944bc6011955dc56/artifacts
+end_time: 1742831851482
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 92348f653c7446a5944bc6011955dc56
+run_name: upset-snake-567
+run_uuid: 92348f653c7446a5944bc6011955dc56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742831851423
+status: 3
+tags: []
+user_id: SHEKHAR SUMAN

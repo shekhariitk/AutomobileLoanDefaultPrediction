@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/ML%20projects/AutomobileLoanDefaultPrediction/mlruns/0/fa3a83239fa74ae4980a7aac7c8da461/artifacts
+end_time: 1742836216558
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fa3a83239fa74ae4980a7aac7c8da461
+run_name: intrigued-fawn-245
+run_uuid: fa3a83239fa74ae4980a7aac7c8da461
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742836216472
+status: 3
+tags: []
+user_id: SHEKHAR SUMAN
